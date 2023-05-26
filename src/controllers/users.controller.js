@@ -17,7 +17,7 @@ export async function signUp (req, res) {
 export async function signIn (req, res) {
    
     try {
-        await signInDB(res.locals.user.name)
+        await signInDB(res.locals.user.name, res.locals.user.profilePicture, res.locals.user.biography)
         const token = await signInTokenDB(res.locals.user.name)
         res.status(200).send(token.rows[0])
 

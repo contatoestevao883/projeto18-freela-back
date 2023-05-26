@@ -21,13 +21,13 @@ export async function validateEmailDB(email) {
     return emailValidation
 }
 
-export async function signInDB(name) {
+export async function signInDB(name, profilePicture, biography) {
     const token = uuid()
 
     const result = await db.query(`
-                    INSERT INTO sessions (token, name) 
-                        VALUES ($1, $2)`,
-                        [token, name]
+                    INSERT INTO sessions (token, name, "profilePicture", biography) 
+                        VALUES ($1, $2, $3, $4)`,
+                        [token, name, profilePicture, biography]
                         )
     return result
 }

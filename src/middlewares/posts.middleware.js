@@ -15,17 +15,3 @@ export async function validateAuth(req, res, next) {
         res.status(500).send(err)
     }
 }
-
-export async function validatePost(req, res, next) {
-        const { id } = req.params
-    try {
-        const post = await getPostsDB(id)
-
-        if (!post.rows[0]) return res.status(404).send({ message: "Esse usuário não possuí nenhum post!" })
-
-        next()
-
-    } catch (err) {
-        res.status(500).send(err)
-    }
-}
