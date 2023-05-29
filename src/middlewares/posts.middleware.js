@@ -1,4 +1,4 @@
-import { findSessionDB, getPostsDB } from "../respositories/posts.repository.js"
+import { findSessionDB } from "../respositories/posts.repository.js"
 
 export async function validateAuth(req, res, next) {
     const { authorization } = req.headers
